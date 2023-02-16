@@ -15,14 +15,8 @@ function calculateImc(event) {
     resultCalc.innerHTML = '';
     resultCalc.style.background = 'transparent';
 
-    if(!weight.value || isNaN(weight.value)) {
-        resultCalc.innerHTML = "Peso inválido!";
-        resultCalc.style.background = "var(--error-color)";
-        return;
-    }
-
-    if(!height.value || isNaN(height.value)) {
-        resultCalc.innerHTML = "Altura inválida!";
+    if(!weight.value || !height.value || isNaN(height.value) || isNaN(weight.value)) {
+        resultCalc.innerHTML = "Dados Inválidos!";
         resultCalc.style.background = "var(--error-color)";
         return;
     }
