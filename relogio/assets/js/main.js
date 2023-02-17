@@ -2,6 +2,7 @@ function timer() {
   const timerDisplay = document.querySelector(".relogio");
   const disabled = document.querySelectorAll(".disabled");
   const iniciar = document.querySelector(".iniciar");
+  const pausar = document.querySelector(".pausar");
   let seconds = 0;
   let timer;
 
@@ -47,6 +48,9 @@ function timer() {
       iniciar.removeAttribute("disabled");
       iniciar.classList.remove("disabled");
       iniciar.innerText = 'Retomar';
+
+      pausar.setAttribute("disabled", true);
+      pausar.classList.add("disabled");
     }
 
     if(element.classList.contains('zerar')){
