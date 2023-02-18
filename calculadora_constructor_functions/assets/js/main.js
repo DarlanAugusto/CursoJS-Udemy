@@ -45,6 +45,7 @@
 
       this.buttonToDisplay = (element) => {
         this.displayInput.value += element.innerText;
+        this.displayInput.focus();
       }
 
       this.calculateValue = () => {
