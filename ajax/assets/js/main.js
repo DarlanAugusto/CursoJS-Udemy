@@ -1,39 +1,3 @@
-const request = (request) => {
-
-  // instanciando nova Promise, para aguardar a requisição
-  return new Promise((resolve, reject) => {
-    // pegando método e URL
-    const method = request.method;
-    const url = request.url;
-    
-    // instanciando AJAX
-    const xhr = new XMLHttpRequest();
-    
-    // Setando método e URL
-    xhr.open(method, url, true);
-    xhr.send();
-  
-    // Chamando evento ao carregar a requisição
-    xhr.addEventListener("load", () => {
-      
-      if(xhr.status >= 200 && xhr.status < 300) {
-        // Sucesso na requisição
-        const response = xhr.responseText;
-        resolve(response);
-      }
-      else {
-        // Erro na requisição
-        const error = {
-          code: xhr.status,
-          errorMessage: xhr.statusText
-        }
-        reject(error);
-      }
-  
-    });
-  })
-}
-
 document.addEventListener("click", (event) => {
   event.preventDefault()
 
@@ -44,20 +8,19 @@ document.addEventListener("click", (event) => {
   loadPage(href);
 })
 
-// função assincrona
 async function loadPage(url) {
-  const requestBody = {
-    method: 'GET',
-    url: url
-  }
 
   try {
-    // esperando a resposta do ajax
-    const response = await request(requestBody);
-    loadResult(response);
+    const response = await fetch(url);
     
-  } catch (error) {
-    console.log(error.errorMessage);
+    if(response.status !== 200) throw new Error("404 Not Found Brother!");
+
+    const html = await response.text();
+    
+    loadResult(html);
+  } 
+  catch(error) {
+    console.error(error);
   }
 
 }
