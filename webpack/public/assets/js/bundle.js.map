@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAA,IAAMA,IAAI,GAAG,QAAQ;AAgBrBC,OAAO,CAACC,GAAG,CAAC,QAAQ,CAAC,C","sources":["webpack://webpack/./src/index.js"],"sourcesContent":["const nome = 'Darlan';\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconsole.log(\"ahahha\");"],"names":["nome","console","log"],"sourceRoot":""}
