@@ -17,13 +17,13 @@
 
   ##
   ##
-  #### *LE O ARQUIVO "package.josn" E INSTALA TODAS AS DEPENDENCIAS DO PROJETO*
+  #### *LE O ARQUIVO "package.json" E INSTALA TODAS AS DEPENDENCIAS DO PROJETO*
         - npm install / - npm i
 
   ##
   ##
   #### *INSTALAÇÃO BABEL* 
-        - npm init -y  ==>  iniciar npm no repositório (Essencial)
+        - npm install --save-dev @babel/cli @babel/core @babel/preset-env
 
   ##
   ##    
