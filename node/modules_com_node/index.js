@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
+const path = require('path');
 
-axios('https://www.otaviomiranda.com.br/files/json/pessoas.json')
-  .then(response => console.log(response.data))
-  .catch(error => console.log(error));
+console.log(path.resolve(__dirname, '..'));
