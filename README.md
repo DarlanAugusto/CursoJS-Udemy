@@ -11,7 +11,7 @@
 
   ##
   ##
-  #### **INICIANDO NPM NO REPOSITÓRIO**
+  ###### **INICIANDO NPM NO REPOSITÓRIO**
       npm init -y
 
   ##
