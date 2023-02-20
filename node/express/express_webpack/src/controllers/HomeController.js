@@ -1,9 +1,11 @@
 exports.homePage = (req, res) => {
 
-  // console.log(req.session.usuario);
+  const pageContent = {
+    title: "Página inicial",
+    description: "Está é a página inicial"
+  }
 
-  console.log(req.flash('test'));
-  res.render('index');
+  res.render('index', pageContent);
   return;
 };
 

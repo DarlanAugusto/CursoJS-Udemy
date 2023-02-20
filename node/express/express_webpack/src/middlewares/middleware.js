@@ -1,4 +1,4 @@
 module.exports = (req, res, next) => {
-  // exemplo de middleware
+  res.locals.localVar = "Estarei em todas as views!";
   next();
 }
