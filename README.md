@@ -51,7 +51,7 @@
   #### **<%# %> | Comentários**
       <%# Algum comentário %>
 
-  #### **<%- %> | includes **
+  #### **<%- %> | includes**
       <%- include('CAMINHO/ARQUIVO') %>
 
 
