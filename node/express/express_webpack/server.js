@@ -1,9 +1,6 @@
 require('dotenv').config();
 
 const express = require('express');
-const routes = require('./routes');
-const meuMiddleware = require('./src/middlewares/middleware');
-const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 
@@ -14,9 +11,15 @@ mongoose.connect(process.env.CONNECTION_STRING)
   })
   .catch(error => console.log(error));
 
+
 const session = require('express-session');
 const MongoStore = require('connect-mongo')
 const flashMessage = require('connect-flash');
+const routes = require('./routes');
+const path = require('path');
+const helmet = require('helmet');
+const { globalMiddleware, checkCsrfError, csrfToken } = require('./src/middlewares/middleware');
+const csrf = require('csurf');
 
 const sessionOptions = session({
   secret: "1l2k3j4h5g6f7d8s9a@",
@@ -32,13 +35,18 @@ const sessionOptions = session({
 app.use(sessionOptions);
 app.use(flashMessage());
 
+app.use(helmet())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
-app.use(meuMiddleware);
+app.use(csrf())
+// meus middlewares
+app.use(globalMiddleware);
+app.use(checkCsrfError);
+app.use(csrfToken);
 app.use(routes);
 
 app.on("ready", () => {
