@@ -1,10 +1,9 @@
 
 ## *CURSO JS UDEMY*
 
-### *SESSAO 1*
-### *COMANDOS DO TERMINAL* 
+### *SESSAO 1: COMANDOS DO TERMINAL* 
 
-  ##### **TEMPLATE**
+  ##### **TEMPLATE** #####
       npm comand
 
   ##### **INICIANDO NPM NO REPOSITÓRIO**
@@ -19,14 +18,12 @@
   ##### **INSTALANDO WEBPACK COM BABEL (LER SESSAO 2)**
       npm install --save-dev @babel/cli @babel/core @babel/preset-env babel-loader webpack webpack-cli regenerator-runtime core-js@2
 
-## *SESSAO 2*
-## *CONFIGURANDO WEBPACK*
+## *SESSAO 2: CONFIGURANDO WEBPACK*
 
   ##### **CRIAR ARQUIVO DE CONFIGURAÇÃO NA RAIZ**
       ../webpack.config.js
 
-## *SESSAO 3*
-## *EJS SINTAXE*
+## *SESSAO 3: EJS SINTAXE*
 
   ##### **<% %> | Controle de Fluxo**
       <% if(...), for(...), array.forEach(...) %>
