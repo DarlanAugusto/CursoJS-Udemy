@@ -1,11 +1,11 @@
 require('dotenv').config();
 
-const express       = require('express');
-const routes        = require('./routes');
+const express = require('express');
+const routes = require('./routes');
 const meuMiddleware = require('./src/middlewares/middleware');
-const path          = require('path');
-const app           = express();
-const mongoose      = require('mongoose');
+const path = require('path');
+const app = express();
+const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.CONNECTION_STRING)
@@ -14,6 +14,23 @@ mongoose.connect(process.env.CONNECTION_STRING)
   })
   .catch(error => console.log(error));
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')
+const flashMessage = require('connect-flash');
+
+const sessionOptions = session({
+  secret: "1l2k3j4h5g6f7d8s9a@",
+  store: new MongoStore({ mongoUrl: process.env.CONNECTION_STRING }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: (1000 * 60 * 60 * 24 * 7),
+    httpOnly: true
+  }
+})
+
+app.use(sessionOptions);
+app.use(flashMessage());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')));

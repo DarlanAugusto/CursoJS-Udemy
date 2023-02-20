@@ -1,4 +1,8 @@
 exports.homePage = (req, res) => {
+
+  // console.log(req.session.usuario);
+
+  console.log(req.flash('test'));
   res.render('index');
   return;
 };
